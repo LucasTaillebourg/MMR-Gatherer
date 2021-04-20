@@ -29,7 +29,7 @@ services:
       - DATABASE_PASSWORD=root
       - DATABASE_NAME=mmr 
       - DATABASE_PORT=3306
-  angular-docker-service:
+  react-docker-service:
     image: mmr-fe-docker-service
     build:
       context: ./mmr-front-end

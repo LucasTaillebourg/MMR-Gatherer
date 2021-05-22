@@ -3,9 +3,9 @@ properties([pipelineTriggers([githubPush()])])
 pipeline {
     agent any
     stages {
-        stage('Redeploiement des container') {
+        stage('Redeploiement et build des container') {
             steps {               
-                sh 'docker-compose -p apache up -d --build'
+                sh 'docker-compose up -d --build'
             }
         }
     }

@@ -15,7 +15,7 @@ services:
   spring-docker-service:
     image: mmr-be-docker-service
     build:
-      context: $PWD/mmr-back-end
+      context: ${WORKSPACE}/mmr-back-end
       dockerfile: ./Dockerfile
     depends_on:
       - docker-mysql
@@ -31,7 +31,7 @@ services:
   react-docker-service:
     image: mmr-fe-docker-service
     build:
-      context: $PWD/mmr-front-end
+      context: ${WORKSPACE}/mmr-front-end
       dockerfile: ./Dockerfile
     ports:
       - 3001:3000

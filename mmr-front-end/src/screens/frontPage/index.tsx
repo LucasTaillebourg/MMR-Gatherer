@@ -8,7 +8,7 @@ const FrontPage = () => {
     return mmrData?.normal?.avg;
   }, [mmrData]);
 
-  return <div>{!isMmrLoading && <div>{avg}</div>}</div>;
+  return <div>{!isMmrLoading && <div>{avg}</div>} <p>test maj</p></div>;
 };
 
 export default FrontPage;

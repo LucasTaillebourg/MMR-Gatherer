@@ -16,7 +16,6 @@ services:
     image: mmr-be-docker-service
     build:
       context: ./mmr-back-end
-      dockerfile: ./Dockerfile
     depends_on:
       - docker-mysql
     ports:
@@ -32,7 +31,6 @@ services:
     image: mmr-fe-docker-service
     build:
       context: ./mmr-front-end
-      dockerfile: ./Dockerfile
     ports:
       - 3001:3000
  

@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Restart des container') {
             steps {               
-                sh 'docker-compose restart'
+                sh 'docker-compose up --force-recreate'
             }
         }
     }

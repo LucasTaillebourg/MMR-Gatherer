@@ -8,10 +8,10 @@ export const useMmr = (userName: string) => {
     return request();
   };
 
-  const { isLoading, data, refetch, isError } = useQuery("getMmr", query, {
+  const { isLoading, data, refetch, isError, isFetched } = useQuery("getMmr", query, {
     select: (result) => result?.data,
     enabled: false
   });
 
-  return { isMmrLoading: isLoading, mmrData: data, refetchMmr: refetch, isErrorFetchingMmr: isError };
+  return { isMmrLoading: isLoading, mmrData: data, refetchMmr: refetch, isErrorFetchingMmr: isError, isMmrFetched: isFetched };
 };

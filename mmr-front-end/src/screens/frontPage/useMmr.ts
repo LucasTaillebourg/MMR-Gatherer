@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import { mmrGathererApi } from "../../services";
 
 export const useMmr = (userName: string) => {
@@ -10,7 +11,8 @@ export const useMmr = (userName: string) => {
 
   const { isLoading, data, refetch, isError, isFetched } = useQuery("getMmr", query, {
     select: (result) => result?.data,
-    enabled: false
+    enabled: false,
+    onError: () => toast.error("Can't fetch " + userName + " mmr")
   });
 
   return { isMmrLoading: isLoading, mmrData: data, refetchMmr: refetch, isErrorFetchingMmr: isError, isMmrFetched: isFetched };

@@ -28,7 +28,7 @@ const FrontPage = () => {
     {isMmrLoading ? <p>Fetching {summonerName} mmr </p> : null}
 
 
-    {isMmrFetched ?  <SummonerMmr mmr={mmrData} summonerName={summonerName} /> : null}
+    {isMmrFetched && !isErrorFetchingMmr ?  <SummonerMmr mmr={mmrData} summonerName={summonerName} /> : null}
   </Styled.Container>
   
   )

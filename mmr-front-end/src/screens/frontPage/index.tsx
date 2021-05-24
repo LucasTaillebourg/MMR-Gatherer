@@ -20,10 +20,17 @@ const FrontPage = () => {
     refetchMmr()
   }
 
+  const handleKeyDown = (e: any) => {
+    if (e.key === 'Enter') {
+      handleClick()
+    }
+  }
+
+
   return (
   <Styled.Container>
     <h1>What's this summoner MMR ? </h1>
-    <Styled.Input value={inputSummonerName} onChange={handleChange} />
+    <Styled.Input value={inputSummonerName} onChange={handleChange} onKeyDown={handleKeyDown}/>
     <button disabled={isMmrFetching} onClick={handleClick}>Get summoner MMR</button>
     {isMmrFetching ? <p>Fetching {summonerName} mmr </p> : null}
 

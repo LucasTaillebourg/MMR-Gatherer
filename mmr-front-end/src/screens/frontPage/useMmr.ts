@@ -9,11 +9,11 @@ export const useMmr = (userName: string) => {
     return request();
   };
 
-  const { isLoading, data, refetch, isError, isFetched } = useQuery("getMmr", query, {
+  const { data, refetch, isError, isFetched, isFetching } = useQuery("getMmr", query, {
     select: (result) => result?.data,
     enabled: false,
     onError: () => toast.error("Can't fetch " + userName + " mmr")
   });
 
-  return { isMmrLoading: isLoading, mmrData: data, refetchMmr: refetch, isErrorFetchingMmr: isError, isMmrFetched: isFetched };
+  return { isMmrFetching: isFetching, mmrData: data, refetchMmr: refetch, isErrorFetchingMmr: isError, isMmrFetched: isFetched };
 };

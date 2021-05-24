@@ -8,7 +8,7 @@ const FrontPage = () => {
   const [inputSummonerName, setInputSummonerName] = useState('')
   const [summonerName, setSummonerName] = useState('')
 
-  const { mmrData, isMmrLoading, refetchMmr, isErrorFetchingMmr, isMmrFetched } = useMmr(inputSummonerName);
+  const { mmrData, isMmrFetching, refetchMmr, isErrorFetchingMmr, isMmrFetched } = useMmr(inputSummonerName);
 
   const handleChange = (event: any) =>  {
     setInputSummonerName(event.target.value)
@@ -24,11 +24,11 @@ const FrontPage = () => {
   <Styled.Container>
     <h1>What's this summoner MMR ? </h1>
     <Styled.Input value={inputSummonerName} onChange={handleChange} />
-    <button disabled={isMmrLoading} onClick={handleClick}>Get summoner MMR</button>
-    {isMmrLoading ? <p>Fetching {summonerName} mmr </p> : null}
+    <button disabled={isMmrFetching} onClick={handleClick}>Get summoner MMR</button>
+    {isMmrFetching ? <p>Fetching {summonerName} mmr </p> : null}
 
 
-    {isMmrFetched && !isErrorFetchingMmr ?  <SummonerMmr mmr={mmrData} summonerName={summonerName} /> : null}
+    {isMmrFetched && !isMmrFetching && !isErrorFetchingMmr ?  <SummonerMmr mmr={mmrData} summonerName={summonerName} /> : null}
   </Styled.Container>
   
   )

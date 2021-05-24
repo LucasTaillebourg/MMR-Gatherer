@@ -8,7 +8,7 @@ const FrontPage = () => {
   const [inputSummonerName, setInputSummonerName] = useState('')
   const [summonerName, setSummonerName] = useState('')
 
-  const { mmrData, isMmrLoading, refetchMmr, isErrorFetchingMmr, isMmrFetched } = useMmr(summonerName);
+  const { mmrData, isMmrLoading, refetchMmr, isErrorFetchingMmr, isMmrFetched } = useMmr(inputSummonerName);
 
   const handleChange = (event: any) =>  {
     setInputSummonerName(event.target.value)
